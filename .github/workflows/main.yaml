@@ -15,19 +15,19 @@ jobs:
 
     steps: 
       - name: Afficher nom
-        run: echo "${{secrets.NAME}}"
+          run: echo "${{vars.NAME}}"
 
   say-first-name:
     runs-on: ubuntu-latest
 
     steps:
       - name: Afficher prenom
-        run: echo "${{secrets.PRENOM}}"
+        run: echo "${{vars.PRENOM}}"
   
   say-mail:
     runs-on: ubuntulatest
 
     steps:
       - name: Afficher mail
-        run: echo "${{secrets.EMAIL}}"
+        run: echo "${{vars.EMAIL}}"
 
