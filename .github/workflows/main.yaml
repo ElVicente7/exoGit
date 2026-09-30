@@ -25,7 +25,7 @@ jobs:
         run: echo "${{vars.PRENOM}}"
   
   say-mail:
-    runs-on: ubuntulatest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Afficher mail
