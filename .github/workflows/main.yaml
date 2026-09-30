@@ -9,32 +9,25 @@ jobs:
     steps:
       - name: Afficher le message
         run: echo "Hello World"
-
-
-  load-varaibles:
-    runs-on: :ubuntu-latest
-    steps:
-      - name: Lire variables
-        run: cat .github/workflows/.env >> "$GITHUB_ENV"
     
   say-family-name:
     runs-on: ubuntulatest
 
     steps: 
       - name: Afficher nom
-        run: echo "$NOM"
+        run: echo "${{secrets.NAME}}"
 
   say-first-name:
     runs-on: ubuntulatest
 
     steps:
-      - name: Afficher nom
-        run: echo "$PRENOM"
+      - name: Afficher prenom
+        run: echo "$secrets.PRENOM"
   
   say-mail:
     runs-on: ubuntulatest
 
     steps:
-      - name: Afficher nom
-        run: echo "$EMAIL"
+      - name: Afficher mail
+        run: echo "$secrets.EMAIL"
 
