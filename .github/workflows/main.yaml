@@ -15,7 +15,7 @@ jobs:
 
     steps: 
       - name: Afficher nom
-          run: echo "${{vars.NAME}}"
+        run: echo "${{vars.NAME}}"
 
   say-first-name:
     runs-on: ubuntu-latest
