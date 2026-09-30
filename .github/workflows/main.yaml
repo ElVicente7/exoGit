@@ -11,23 +11,23 @@ jobs:
         run: echo "Hello World"
     
   say-family-name:
-    runs-on: ubuntulatest
+    runs-on: ubuntu-latest
 
     steps: 
       - name: Afficher nom
         run: echo "${{secrets.NAME}}"
 
   say-first-name:
-    runs-on: ubuntulatest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Afficher prenom
-        run: echo "$secrets.PRENOM"
+        run: echo "${{secrets.PRENOM}}"
   
   say-mail:
     runs-on: ubuntulatest
 
     steps:
       - name: Afficher mail
-        run: echo "$secrets.EMAIL"
+        run: echo "${{secrets.EMAIL}}"
 
