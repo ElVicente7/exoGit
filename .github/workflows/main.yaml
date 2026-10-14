@@ -38,6 +38,7 @@ jobs:
         run: echo "${{ vars.EMAIL }}"
 
   deploy:
+    needs: lint
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
@@ -60,3 +61,13 @@ jobs:
       - name: Déployer sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  lint:
+    runs-on: ubutun-latest
+
+    steps:
+      - uses: actions/checkout@v4w
+
+      - name: Vérifie code HTML
+        run: npx --yes htmlint helloworld.html
+
