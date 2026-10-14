@@ -69,5 +69,5 @@ jobs:
       - uses: actions/checkout@v4w
 
       - name: Vérifie code HTML
-        run: npx --yes htmlint helloworld.html
+        run: npx --yes htmlhint helloworld.html
 
