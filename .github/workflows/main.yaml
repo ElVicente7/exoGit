@@ -38,7 +38,7 @@ jobs:
         run: echo "${{ vars.EMAIL }}"
 
   lint:
-    runs-on: ubutun-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4w
