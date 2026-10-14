@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4w
+      - uses: actions/checkout@v4
 
       - name: Vérifie code HTML
         run: npx --yes htmlhint helloworld.html
