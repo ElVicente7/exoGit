@@ -1,37 +1,44 @@
+
 name: Pipeline Hello World
 
 on: [push]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   say-hello-world:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
 
     steps:
       - name: Afficher le message
         run: echo "Hello World"
-    
+
   say-family-name:
     runs-on: ubuntu-latest
 
-    steps: 
+    steps:
       - name: Afficher nom
-        run: echo "${{vars.NAME}}"
+        run: echo "${{ vars.NAME }}"
 
   say-first-name:
     runs-on: ubuntu-latest
 
     steps:
       - name: Afficher prenom
-        run: echo "${{vars.PRENOM}}"
-  
+        run: echo "${{ vars.PRENOM }}"
+
   say-mail:
     runs-on: ubuntu-latest
 
     steps:
       - name: Afficher mail
-        run: echo "${{vars.EMAIL}}"
+        run: echo "${{ vars.EMAIL }}"
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     environment:
@@ -48,9 +55,8 @@ jobs:
       - name: Préparer les fichiers
         uses: actions/upload-pages-artifact@v3
         with:
-        path: .
+          path: .
 
       - name: Déployer sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
