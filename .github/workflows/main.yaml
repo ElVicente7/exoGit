@@ -37,6 +37,15 @@ jobs:
       - name: Afficher mail
         run: echo "${{ vars.EMAIL }}"
 
+  lint:
+    runs-on: ubutun-latest
+
+    steps:
+      - uses: actions/checkout@v4w
+
+      - name: Vérifie code HTML
+        run: npx --yes htmlhint helloworld.html
+
   deploy:
     needs: lint
     if: github.ref == 'refs/heads/main'
@@ -61,13 +70,3 @@ jobs:
       - name: Déployer sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  lint:
-    runs-on: ubutun-latest
-
-    steps:
-      - uses: actions/checkout@v4w
-
-      - name: Vérifie code HTML
-        run: npx --yes htmlhint helloworld.html
-
