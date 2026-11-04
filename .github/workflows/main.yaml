@@ -83,7 +83,7 @@ jobs:
         run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_ID }} --password-stdin
 
       - name: Build image
-        run: docker build -t ${{ secrets.DOCKER_TOKEN }}/devops:latest .
+        run: docker build -t ${{ secrets.DOCKER_ID }}/devops:latest .
 
       - name: Push image .
-        run: docker push ${{ secrets.DOCKER_TOKEN }}/devops:latest
+        run: docker push ${{ secrets.DOCKER_ID }}/devops:latest
