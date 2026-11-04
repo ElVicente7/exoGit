@@ -70,3 +70,20 @@ jobs:
       - name: Déployer sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@4
+
+      - name: Login to Docker
+        run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_ID }} --password_stdin
+
+      - name: Build image
+        run: docker build -t ${{ secrets.DOCKER_TOKEN }}/devops:latest .
+
+      - name: Push image
+        run: docker push ${{ secrets.DOCKER_TOKEN }}/devops:latest
